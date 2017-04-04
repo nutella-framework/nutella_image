@@ -2,8 +2,9 @@
 
 **WORK IN PROGRESS**
 
+
 This repo contains a [Packer](https://packer.io) file that describes an image that contains nutella and all of its dependecies correctly configured. The image comes in several flavors using different builders:
-- 
+- AMI
 
 The repo also contains a vagrant file used for testing
 
