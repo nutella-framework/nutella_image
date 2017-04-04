@@ -1,0 +1,22 @@
+{
+  "builders": [
+    {
+      "ssh_host": "127.0.0.1",
+      "ssh_port": "2222",
+      "ssh_private_key_file": ".vagrant/machines/default/virtualbox/private_key",
+      "ssh_username": "ubuntu",
+      "type": "null"
+    }
+  ],
+  "provisioners": [
+    {
+      "destination": "/tmp/mongodb.service",
+      "source": "scripts/mongodb.service",
+      "type": "file"
+    },
+    {
+      "script": "scripts/install_nutella.sh",
+      "type": "shell"
+    }
+  ]
+}
