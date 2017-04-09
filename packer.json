@@ -1,4 +1,11 @@
 {
+  "variables": {
+    "aws_access_key": "",
+    "aws_secret_key": "",
+    "vpc_id": "",
+    "subnet_id": ""
+  },
+
   "builders": [
     {
       "ssh_host": "127.0.0.1",
@@ -6,6 +13,18 @@
       "ssh_private_key_file": ".vagrant/machines/default/virtualbox/private_key",
       "ssh_username": "ubuntu",
       "type": "null"
+    },
+    {
+      "type":"amazon-ebs",
+      "ami_name": "nutella-v0_6_21",
+      "instance_type": "t2.micro",
+      "region": "us-east-1",
+      "source_ami": "ami-fd6e3bea",
+      "ssh_username": "ubuntu",
+      "access_key": "{{user `aws_access_key`}}",
+      "secret_key": "{{user `aws_secret_key`}}",
+      "vpc_id": "{{user `vpc_id`}}",
+      "subnet_id": "{{user `subnet_id`}}"
     }
   ],
   "provisioners": [

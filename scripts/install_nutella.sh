@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "Install updates"
+sudo apt-get update
+sudo apt-get upgrade
+
 echo "Installing mongo"
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
 echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
@@ -31,9 +35,5 @@ source /home/ubuntu/.rvm/scripts/rvm
 
 echo "Installing nutella"
 gem install nutella_framework --no-ri --no-rdoc
-# nutella checkup
+nutella checkup
 
-# WORK IN PROGRESS
-
-# apt-get upgrade and security-update
-# restart
