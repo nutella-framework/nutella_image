@@ -15,5 +15,9 @@ This repository contains:
 Once you make some changes to the machine image you might want to build it with `packer build`. Before you do that and depending on the builder, you might need to provide some variables (e.g. your AWS ID and secret). You can do so using the `variables.json` file and then building with `packer build --only=amazon-ebs -var-file=variables.json packer.json`. Please see the Packer documentation for more details.
 
 ## TODOs for v1
-- [ ] Figure out why `nutella checkup` fails the first time and fix
-- [ ] Figure out broker config for nutella (manual step after DNS?)
+- [x] Figure out why `nutella checkup` fails the first time and fix
+- [x] Update image with Docker
+- [x] Build AMI
+- [ ] Run box in AWS
+- [ ] Write instructions to assign public IP, configure SGs and update broker IP in nutella
+- [ ] Autoprovision with Terraform?
