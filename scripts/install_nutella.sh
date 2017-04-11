@@ -20,6 +20,11 @@ sudo gpasswd -a ubuntu docker
 sudo service docker restart
 newgrp docker
 
+echo "Install updates"
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo unattended-upgrades
+
 echo "Installing rvm and Ruby"
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 \curl -sSL https://get.rvm.io | bash -s stable --ruby=2.4.1
@@ -29,10 +34,5 @@ echo "Installing nutella"
 gem install nutella_framework -v 0.7.1 --no-ri --no-rdoc
 nutella checkup
 
-echo "Install updates"
-sudo apt-get update
-sudo apt-get upgrade -y
-sudo unattended-upgrades
+echo "Done building image, rebooting..."
 sudo reboot
-
-echo "Done building image"

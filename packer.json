@@ -16,7 +16,7 @@
     },
     {
       "type":"amazon-ebs",
-      "ami_name": "nutella-v0_7_1",
+      "ami_name": "nutella_framework/images/nutella-v0.7.1",
       "instance_type": "t2.micro",
       "region": "us-east-1",
       "source_ami": "ami-fd6e3bea",
