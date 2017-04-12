@@ -7,23 +7,17 @@
 
 ## How run nutella in AWS using this image
 1. Head to your AWS console and then to EC2.
-2. Click on "Launch Instance"
-3. Select the latest version of the nutella AMI `ami-c732bbd1`, choose the size of the box and click on "Review and launch"
-4. Click on "Launch", choose (or create) a key to SSH into the box, and click on "Launch instance".
-5. Go back to EC2 > Security groups and select the one associated to your instance (likely sometihng along the lines of `launch-wizard-1`).
-6. In the inbound tab add the following "Custom TCP rules"
-```
-TCP 1883 0.0.0.0/0
-TCP 1884 0.0.0.0/0
-TCP 27017 0.0.0.0/0
-TCP 57880 0.0.0.0/0
-TCP 57882 0.0.0.0/0
-```
-7. Head to EC2 > your instance and copy the public IPv4
-8. SSH into the server via `ssh -i /path/to/key.pem ubuntu@<BOX_IP_ADDRESS>`
-9. **CHECK EVERYTHING IS RUNNING**
-10. **SET BROKER VIA `nutella broker set <BOX_IP_ADDRESS>`**
-11. **Test with nutella new, nutella start**
+1. Click on the "Launch Instance" button.
+1. On the left panel, select the latest version of the nutella AMI `nutella_framework/images/nutella-v0.7.2 (ami-5bde554d)` from the "Community AMIs". 
+1. Choose the size of the box (`t2.micro` works for simple deployments) and click on "Review and launch".
+1. Click on "Launch" on the next screen, choose (or create) a key to SSH into the box, and click on "Launch instance".
+1. Go back to EC2, select "Security groups" from the left panel, and select the one associated to your instance (likely something along the lines of `launch-wizard-1`).
+1. In the "Inbound" tab add the following "Custom TCP rules": `TCP 1883 0.0.0.0/0`, `TCP 1884 0.0.0.0/0`, `TCP 57880 0.0.0.0/0`, `TCP 57882 0.0.0.0/0`
+1. Head to EC2 and the public IPv4 of your instance.
+1. SSH into the server by running this command on your laptop terminal `ssh -i /path/to/key.pem ubuntu@<BOX_IP_ADDRESS>`
+1. Once you are on the box, the first thing you need to do is to set the nutella broker to the IP address of this instace. You can do that by running `nutella broker set <BOX_IP_ADDRESS>`.
+1. Finally, make sure that mongo is runnig by running `sudo systemctl start mongodb`.
+1. **Congratulations!** You are now ready to test if nutella is running! Pull your favorite app and run it! :shipit:
 
 
 ## Want to contribute? Keep reading...
