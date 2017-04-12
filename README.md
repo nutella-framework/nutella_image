@@ -32,8 +32,3 @@ This repository contains:
 - A `Vagrantfile` used to test the provisioning script
 
 Once you make some changes to the machine image you might want to build it with `packer build`. Before you do that and depending on the builder, you might need to provide some variables (e.g. your AWS ID and secret). You can do so using the `variables.json` file and then building with `packer build --only=amazon-ebs -var-file=variables.json packer.json`. Please see the Packer documentation for more details.
-
-
-## TODOs for v1
-- [ ] REBUILD and check
-- [ ] Docker not pulling image during checkup
